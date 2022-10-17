@@ -7,7 +7,7 @@ export class NavBar extends Component {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to = "/">
-                            NewsMonkey
+                            NewsApp
                         </Link>
                         <button
                             className="navbar-toggler"
@@ -26,13 +26,13 @@ export class NavBar extends Component {
                         >
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
-                                    <a
+                                    <Link
                                         className="nav-link"
                                         aria-current="page"
                                         to = "/"
                                     >
                                         Home
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="nav-item">
                                     <Link className="nav-link" to = "/business">Business</Link></li>;
