@@ -24,7 +24,7 @@ export class News extends Component {
 
     async update() {
         this.props.setProgress(10)
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=4fd60328d07f407db32ab5532e866c63&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
         this.setState({ loading: true });
         let data = await fetch(url);
         this.props.setProgress(30)
@@ -44,11 +44,12 @@ export class News extends Component {
 
     styles = {
         margin: "35px 0px",
+        marginTop : '90px'
     };
 
     fetchMoreData = async () =>{
         this.setState({page:this.state.page + 1})
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=4fd60328d07f407db32ab5532e866c63&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikey}&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parsedData = await data.json();
         this.setState({
@@ -64,13 +65,12 @@ export class News extends Component {
                 <h1 className="text-center" style={this.styles}>
                     My NewsApp - Top Headlines
                 </h1>
-                {/* {this.state.loading && <Spinner />} */}
 
 
                 <InfiniteScroll
                 dataLength={this.state.articles.length}
                 next={this.fetchMoreData}
-                hasMore={this.state.articles.length !== this.state.totalResults}
+                hasMore={this.state.articles !== this.state.totalResults}
                 loader={<Spinner />}>
                 
                     <div className="container">
