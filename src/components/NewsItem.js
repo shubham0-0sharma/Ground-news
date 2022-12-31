@@ -6,9 +6,9 @@ export class NewsItem extends Component {
             this.props;
         return (
             <div className="my-3">
-                <div className="card">
+                <div className="card" style = {{height:"34rem"}}>
                     <div
-                        style={{
+                        style={{ 
                             display: "flex",
                             justifyContent: "flex-end",
                             position: "absolute",
@@ -26,12 +26,12 @@ export class NewsItem extends Component {
                                 ? "https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg"
                                 : imageUrl
                         }
-                        className="card-img-top"
+                        className="card-img-top" style={{widht: "30rem", height: "15rem"}}
                         alt="..."
                     />
                     <div className="card-body">
                         <h5 className="card-title">{title}</h5>
-                        <p className="card-text">{description}</p>
+                        <p className="card-text">{description}...</p>
                         <a
                             rel="noreferrer"
                             href={newsUrl}
